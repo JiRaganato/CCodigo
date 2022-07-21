@@ -23,3 +23,7 @@ def noticias(request):
 def about(request):
 
     return render(request, "AppCC/about.html")
+
+def construccion(request):
+
+    return render(request, "AppCC/construccion.html")

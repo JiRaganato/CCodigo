@@ -1,12 +1,9 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.forms import BooleanField
 
 # Create your models here.
 
-class productos(models.Model):
+class Productos(models.Model):
     nombre= models.CharField(max_length=30)
     caracteristica= models.CharField(max_length=100)
     stock= BooleanField()

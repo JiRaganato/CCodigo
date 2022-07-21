@@ -1,9 +1,9 @@
 from django.urls import path
-from Corralon import views
+from . import views
 urlpatterns = [
     
-    path('ventaminorista', views.ventaminorista, name= "VentaMinorista"),
-    path('contacto', views.contacto, name="Contacto"),
-    path('noticias', views.noticias, name="Noticias"),
-    path('buscarproducto', views.buscarproducto),
+    path('ventaminorista/', views.ventaminorista, name= "ventaminorista"),
+    path('contactocorr/', views.contacto, name="contacto"),
+    path('noticiascorr/', views.noticias, name="noticias"),
+    path('productos/', views.productos, name="productos"),
 ]

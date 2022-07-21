@@ -6,7 +6,7 @@ from django.forms import BooleanField
 
 # Create your models here.
 
-class producto(models.Model):
+class Producto(models.Model):
     nombre= models.CharField(max_length=30)
     caracteristica= models.CharField(max_length=100)
 
