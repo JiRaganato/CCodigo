@@ -25,6 +25,18 @@ def presupuestos(request):
 
     return render(request, "Corralon/presupuestos.html", {"nuevopresupuesto":nuevopresupuesto})
 
+def presupuestosall(request):
+    presup = Presupcor.objects.all()
+    return render(request, "Corralon/presupuestosall.html", {'presup':presup})
+
+def borrarpresupuesto(request, presupuesto_nombre):
+
+    aeliminar = Presupcor.objects.get(nombre=presupuesto_nombre)
+    aeliminar.delete()
+
+    presup = Presupcor.objects.all()
+    return render(request, "Corralon/presupuestosall.html", {'presup':presup})
+
 def contactocorr(request):
 
     return render(request, "Corralon/contactocorr.html")
@@ -38,5 +50,13 @@ def buscarproducto(request):
     return render(request, "Corralon/productos.html")
 
 def productos(request):
+    productos = Productos.objects.all()
+    return render(request, "Corralon/productos.html", {'productos':productos})
+
+def borrarproducto(request, producto_nombre):
+
+    producto = Productos.objects.get(producto_nombre)
+    producto.delete()
+
     productos = Productos.objects.all()
     return render(request, "Corralon/productos.html", {'productos':productos})

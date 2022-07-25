@@ -15,5 +15,8 @@ class Presupcorrform(forms.Form):
     pedido= forms.CharField(label="Pedido", required=True, widget=forms.TextInput(
         attrs={'class':'form-control', 'placeholder':'Pedido a presupuestar'}
     ), min_length=3, max_length=1000)
+    retiro= forms.CharField(label="Retiro", required=True, widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder':'Direccion o retira por sucursal'}
+    ), min_length=3, max_length=100)
     
 
