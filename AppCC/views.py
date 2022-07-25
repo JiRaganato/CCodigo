@@ -12,9 +12,6 @@ def quienessomos(request):
 
     return render(request, "AppCC/quienessomos.html")
 
-def contacto(request):
-
-    return render(request, "AppCC/contacto.html")
 
 def noticias(request):
 
@@ -27,3 +24,7 @@ def about(request):
 def construccion(request):
 
     return render(request, "AppCC/construccion.html")
+
+def contacto(request):
+
+    return render(request, "AppCC/contacto.html")

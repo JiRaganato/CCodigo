@@ -1,0 +1,27 @@
+{% extends "AppCC/origen.html" %}
+
+{% load static %}
+
+{% block construccion %}
+    
+    <h1>Formulario - Presupuestos</h1>
+
+    {% if nuevopresupuestodist.errors %}
+
+    <p style="color: red"> Estan mal los datos, revisar </p>
+    
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+
+        <table>
+            
+            {{ nuevopresupuestodist.as_table }}
+                        
+        </table>
+
+        <input type="submit" value="Enviar Presupuesto">
+    
+    </form>
+
+{% endblock %}

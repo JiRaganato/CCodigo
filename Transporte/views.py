@@ -2,7 +2,7 @@ from http.client import NOT_FOUND
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from CCodigo.Transporte.models import Cargas, Tramos
+from Transporte.models import Cargas, Tramos
 
 # Create your views here.
 
@@ -10,9 +10,9 @@ def transporte(request):
 
     return render(request, "Transporte/transporte.html")
 
-def contacto(request):
+def contactotransp(request):
 
-    return render(request, "Transporte/contacto.html")
+    return render(request, "Transporte/contactotransp.html")
 
 def noticias(request):
 

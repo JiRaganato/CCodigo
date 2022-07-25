@@ -1,0 +1,38 @@
+{% extends "AppCC/origen.html" %}
+
+{% load static %}
+
+{% block cont %}
+<a href="{% url 'contactodist' %}" class="nav-item nav-link">Contacto</a>
+{% endblock %}
+
+{% block datos %}
+    <section data-section="section1">   
+        <div class="row">
+            <div class="col-md-12 search">
+                <form action="{% url 'buscardist' %}" method="get">  
+                    <div id="custom-search-input">  
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control" placeholder="Buscar Producto" name="nombre" value= "{{ request.GET.nombre }}">
+                            <input type="submit" value="Buscar">                                                            
+                        </div>
+                    </div>
+                </form>
+                {% if request.GET.nombre %}
+
+                <p>Resultado de busqueda:</p>                
+                <p>{{Resultado}}</p>
+                                    
+                {% endif %}
+                <div class="d-flex align-items-center ml-4">
+                    <a class="border-bottom border-primary text-uppercase text-decoration-none" href="{% url 'buscarproddist' %}">Nueva busqueda <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+ 
+<!-- Quote Request Start -->    
+
+{% endblock %}
+

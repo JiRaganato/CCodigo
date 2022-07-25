@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Con Codigo L&D</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'AppCC/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'AppCC/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'AppCC/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-1 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center h-100">
+                    <a class="text-body mr-3" href="{% url 'construccion' %}">About</a>
+                    <a class="text-body mr-3" href="{% url 'construccion' %}">Contacto</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mi Cuenta</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button" href="admin">Ingresar</button>
+                            <button class="dropdown-item" type="button">Registrarse</button>
+                        </div>
+                    </div>
+                    <div class="btn-group mx-2">
+                    </div>
+                    <div class="btn-group">
+                        <div>    
+                        </div>
+                    </div>
+                </div>
+                <div class="d-inline-flex align-items-center d-block d-lg-none">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-shopping-cart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>Con Codigo</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="{% url 'inicio' %}" class="nav-item nav-link active">Inicio</a>
+                    <a href="{% url 'quienessomos' %}" class="nav-item nav-link">Quienes somos</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Servicios</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="{% url 'ventaminorista' %}" class="dropdown-item">Venta Minorista</a>
+                            <a href="{% url 'ventamayorista' %}" class="dropdown-item">Venta Mayorista</a>
+                            <a href="{% url 'transporte' %}" class="dropdown-item">Transporte</a>
+                            <a href="{% url 'gestion' %}" class="dropdown-item">Gestion</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'contacto' %}" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Contactos</h3>
+                        {% block contacto %}
+                        <h6 class="text-primary mb-4">Venta Minorista</h6>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+549 2223 505832</p>
+                        <p><i class="fa fa-envelope mr-2"></i>ventas@concodigosrl.com.ar</p>
+                        <h6 class="text-primary mb-4">Venta Mayorista</h6>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+549 221 684-9147</p>
+                        <p><i class="fa fa-envelope mr-2"></i>ventas@concodigosrl.com.ar</p>
+                        <h6 class="text-primary mb-4">Logistica y Transporte</h6>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+549 2223 46-1802</p>
+                        <p><i class="fa fa-envelope mr-2"></i>logistica@concodigosrl.com.ar</p>
+                        <h6 class="text-primary mb-4">Gestion</h6>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+549 221 684-9203</p>
+                        <p><i class="fa fa-envelope mr-2"></i>administracion@concodigosrl.com.ar</p>
+                        {% endblock %}
+                        
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Enlaces</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="{% url 'ventaminorista' %}"><i class="fa fa-angle-right mr-2"></i>Venta Minorista</a>
+                            <a class="text-white mb-2" href="{% url 'ventamayorista' %}"><i class="fa fa-angle-right mr-2"></i>Venta Mayorista</a>
+                            <a class="text-white mb-2" href="{% url 'transporte' %}"><i class="fa fa-angle-right mr-2"></i>Logistica y Transporte</a>
+                            <a class="text-white mb-2" href="{% url 'gestion' %}"><i class="fa fa-angle-right mr-2"></i>Gestion</a>
+                        </div>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="https://twitter.com/ConCodigoLyD"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="https://www.facebook.com/people/Concodigo-Lyd/100078105739938/"><i class="fab fa-facebook-f"></i></a>
+                            <!-- <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/con.codigo.lyd/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <div>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>Franklin 335, Coronel Brandsen, Bs As</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d938.5602279559198!2d-58.21699551990481!3d-35.15579909811116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sar!4v1658588704236!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               </div>
+            </div>    
+        </div>
+    </div>    
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">www.concodigosrl.com.ar</a>. All Rights Reserved. 
+                
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                </p>
+            </div>
+            <!-- <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'AppCC/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'AppCC/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'AppCC/lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'AppCC/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'AppCC/mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'AppCC/mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'AppCC/js/main.js' %}"></script>
+</body>
+
+</html>
+
+
