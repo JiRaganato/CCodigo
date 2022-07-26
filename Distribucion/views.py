@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import Presupdistform
 from .models import Producto,Presupdist
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -35,11 +39,31 @@ def buscardist(request):
     
     return HttpResponse(resultado)
 
-
-
 def productos(request):
     productos = Producto.objects.all()
     return render(request, "Distribucion/buscarproducto.html", {'productos':productos})
+
+class productoslist(ListView):
+    model = Producto
+    template_name = "Distribucion/productosdist.html"
+
+class productodetalle(DetailView):
+    model = Producto
+    template_name = "Distribucion/productosdetalle.html"
+
+class productocreacion(CreateView):
+    model = Producto
+    success_url = "/Distribucion/productosdist/list"
+    fields = ['nombre', 'caracteristica']
+
+class productoedit(UpdateView):
+    model = Producto
+    success_url = "/Distribucion/productosdist/list"
+    fields = ['nombre', 'caracteristica']
+
+class productoborrar(DeleteView):
+    model = Producto
+    success_url = "/Distribucion/productosdist/list"
 
 def presupuestodist(request):
     

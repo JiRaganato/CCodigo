@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block presupuesto %}
+<a href="{% url 'presupuestosall' %}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Presupuesto</a>
+{% endblock %}
+
 {% block cont %}
 <a href="{% url 'contactocorr' %}" class="nav-item nav-link">Contacto</a>
 {% endblock %}
@@ -15,7 +19,8 @@
 
                 <li>{{p}}</li>                
                 <button>
-                    <a href="#">Eliminar</a>
+                    <a href="{% url 'borrarpresupuesto' p.nombre %}">Eliminar</a>
+                    <a href="{% url 'editarpresupuesto' p.nombre %}">Editar</a>
                 </button>                                    
                 {% endfor %}
              

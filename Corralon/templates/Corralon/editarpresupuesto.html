@@ -7,20 +7,12 @@
 {% endblock %}
 
 {% block construccion %}
-    
-    <h1>Formulario - Presupuestos</h1>
-
-    {% if nuevopresupuesto.errors %}
-
-    <p style="color: red"> Estan mal los datos, revisar </p>
-    
-    {% endif %}
 
     <form action="" method="POST">{% csrf_token %}
 
         <table>
             
-            {{ nuevopresupuesto.as_table }}
+            {{ mipresupuesto.as_table }}
                         
         </table>
 

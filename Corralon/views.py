@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import is_valid_path
 from .forms import Presupcorrform
 from .models import Productos, Presupcor
+
 # Create your views here.
 
 def ventaminorista(request):
@@ -37,6 +38,35 @@ def borrarpresupuesto(request, presupuesto_nombre):
     presup = Presupcor.objects.all()
     return render(request, "Corralon/presupuestosall.html", {'presup':presup})
 
+def editarpresupuesto(request, presupuesto_nombre):
+
+    aeditar = Presupcor.objects.get(nombre=presupuesto_nombre)
+    
+    if request.method == 'POST':
+        mipresupuesto = Presupcorrform(request.POST)
+        print(mipresupuesto)
+        if mipresupuesto.is_valid():
+            nuevainfo = mipresupuesto.cleaned_data
+
+            aeditar.nombre = nuevainfo['nombre']
+            aeditar.apellido = nuevainfo['apellido']
+            aeditar.telefono = nuevainfo['telefono']
+            aeditar.mail = nuevainfo['mail']
+            aeditar.pedido = nuevainfo['pedido']
+            aeditar.retiro = nuevainfo['retiro']
+
+            aeditar.save()
+
+            return render(request, "Corralon/editarpresupuesto.html")
+            
+
+    else:
+                
+        mipresupuesto = Presupcorrform(initial={'nombre': aeditar.nombre, 'apellido': aeditar.apellido, 'telefono': aeditar.telefono, 'mail':aeditar.mail, 'pedido': aeditar.pedido,'retiro': aeditar.retiro})
+    
+    return render(request, "Corralon/editarpresupuesto.html", {"mipresupuesto":mipresupuesto, "presupuesto_nombre":presupuesto_nombre})
+
+
 def contactocorr(request):
 
     return render(request, "Corralon/contactocorr.html")
@@ -60,3 +90,4 @@ def borrarproducto(request, producto_nombre):
 
     productos = Productos.objects.all()
     return render(request, "Corralon/productos.html", {'productos':productos})
+
