@@ -41,8 +41,8 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mi Cuenta</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button" href="admin">Ingresar</button>
-                            <button class="dropdown-item" type="button">Registrarse</button>
+                            <a class="text-body mr-3" href="{% url 'Login' %}">Ingresar</a>
+                            <a class="text-body mr-3" href="{% url 'construccion' %}">Registrarse</a>
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -101,7 +101,8 @@
     </div>
     <!-- Navbar End -->
 
-
+    {% block login %}
+    
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
@@ -114,7 +115,7 @@
         </div>
     </div>
     <!-- Header End -->
-
+    {% endblock %}
     {% block datos %}
     {% endblock %}
 

@@ -1,0 +1,15 @@
+{% extends "AppCC/origen.html" %}
+
+{% load static %}
+
+{% block login %}
+
+    <form action="" method="POST">{% csrf_token %}
+        
+        {{form.as_p}}
+
+        <button type="submit">Iniciar Sesion</button>
+
+    </form>
+
+{% endblock %}
