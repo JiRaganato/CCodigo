@@ -45,7 +45,7 @@ def productos(request):
 
 class productoslist(ListView):
     model = Producto
-    template_name = "Distribucion/productosdist.html"
+    template_name = "Distribucion/productos_list.html"
 
 class productodetalle(DetailView):
     model = Producto
@@ -53,17 +53,17 @@ class productodetalle(DetailView):
 
 class productocreacion(CreateView):
     model = Producto
-    success_url = "/Distribucion/productosdist/list"
+    success_url = "producto/list"
     fields = ['nombre', 'caracteristica']
 
 class productoedit(UpdateView):
     model = Producto
-    success_url = "/Distribucion/productosdist/list"
+    success_url = "producto/list"
     fields = ['nombre', 'caracteristica']
 
 class productoborrar(DeleteView):
     model = Producto
-    success_url = "/Distribucion/productosdist/list"
+    success_url = "producto/list"
 
 def presupuestodist(request):
     
