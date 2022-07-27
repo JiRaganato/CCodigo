@@ -53,17 +53,17 @@ class productodetalle(DetailView):
 
 class productocreacion(CreateView):
     model = Producto
-    success_url = "producto/list"
+    success_url = "/distribucion/producto/list"
     fields = ['nombre', 'caracteristica']
 
 class productoedit(UpdateView):
     model = Producto
-    success_url = "producto/list"
+    success_url = "/distribucion/producto/list"
     fields = ['nombre', 'caracteristica']
 
 class productoborrar(DeleteView):
     model = Producto
-    success_url = "producto/list"
+    success_url = "/distribucion/producto/list"
 
 def presupuestodist(request):
     
