@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import is_valid_path
 from .forms import Presupcorrform
 from .models import Productos, Presupcor
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -26,10 +27,12 @@ def presupuestos(request):
 
     return render(request, "Corralon/presupuestos.html", {"nuevopresupuesto":nuevopresupuesto})
 
+@login_required
 def presupuestosall(request):
     presup = Presupcor.objects.all()
     return render(request, "Corralon/presupuestosall.html", {'presup':presup})
 
+@login_required
 def borrarpresupuesto(request, presupuesto_nombre):
 
     aeliminar = Presupcor.objects.get(nombre=presupuesto_nombre)
@@ -38,6 +41,7 @@ def borrarpresupuesto(request, presupuesto_nombre):
     presup = Presupcor.objects.all()
     return render(request, "Corralon/presupuestosall.html", {'presup':presup})
 
+@login_required
 def editarpresupuesto(request, presupuesto_nombre):
 
     aeditar = Presupcor.objects.get(nombre=presupuesto_nombre)
@@ -75,6 +79,7 @@ def noticias(request):
 
     return render(request, "Corralon/noticias.html")
 
+@login_required
 def buscarproducto(request):
 
     return render(request, "Corralon/productos.html")
@@ -83,6 +88,7 @@ def productos(request):
     productos = Productos.objects.all()
     return render(request, "Corralon/productos.html", {'productos':productos})
 
+@login_required
 def borrarproducto(request, producto_nombre):
 
     producto = Productos.objects.get(producto_nombre)

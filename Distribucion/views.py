@@ -7,7 +7,8 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 def ventamayorista(request):
@@ -22,10 +23,12 @@ def noticias(request):
 
     return render(request, "Distribucion/noticias.html")
 
+@login_required
 def buscarproddist(request):
 
     return render(request, "Distribucion/buscarproddist.html")
 
+@login_required
 def buscardist(request):
     nombre = request.GET.get('nombre')
     if nombre:
@@ -39,29 +42,30 @@ def buscardist(request):
     
     return HttpResponse(resultado)
 
+@login_required
 def productos(request):
     productos = Producto.objects.all()
     return render(request, "Distribucion/buscarproducto.html", {'productos':productos})
 
-class productoslist(ListView):
+class productoslist(LoginRequiredMixin, ListView):
     model = Producto
     template_name = "Distribucion/productos_list.html"
 
-class productodetalle(DetailView):
+class productodetalle(LoginRequiredMixin, DetailView):
     model = Producto
     template_name = "Distribucion/productosdetalle.html"
 
-class productocreacion(CreateView):
+class productocreacion(LoginRequiredMixin, CreateView):
     model = Producto
     success_url = "/distribucion/producto/list"
     fields = ['nombre', 'caracteristica']
 
-class productoedit(UpdateView):
+class productoedit(LoginRequiredMixin, UpdateView):
     model = Producto
     success_url = "/distribucion/producto/list"
     fields = ['nombre', 'caracteristica']
 
-class productoborrar(DeleteView):
+class productoborrar(LoginRequiredMixin, DeleteView):
     model = Producto
     success_url = "/distribucion/producto/list"
 
