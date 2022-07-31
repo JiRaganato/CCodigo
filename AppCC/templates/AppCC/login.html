@@ -10,12 +10,12 @@
     <form action="" method="POST">{% csrf_token %}
         
         {{form.as_p}}
-
+        
         <button type="submit">Iniciar Sesion</button>
         
 
     </form>
-
+    
     <button><a href="{% url 'Register' %}"> REGISTRARSE </a></button>
 
     <button><a href="{% url 'Login' %}">Volver a intentar</a></button>

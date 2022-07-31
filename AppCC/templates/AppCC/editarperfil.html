@@ -1,0 +1,25 @@
+{% extends "AppCC/origen.html" %}
+
+{% load static %}
+
+{% block login %}
+
+    <h1 style="background-color: rgba(44, 227, 50, 0.854);">Formulario - Editar Perfil</h1>
+    <h1>De {{usuario}}</h1>
+
+    <br>
+    
+    <form action="" method="POST">{% csrf_token %}
+        
+        <table>
+            {{miformulario.as_table}}
+        </table>
+
+        <input type="submit" value="Guardar">
+        
+    </form>
+    <br>
+    <div>
+        <a href="{% url 'inicio' %}" type="submit">Cancelar y volver a Inicio</a>
+    </div>
+{% endblock %}
